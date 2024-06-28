@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db-trelloClone:
+    container_name: db-trelloClone
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: TrelloClone
+      POSTGRES_USER: trello
+      POSTGRES_PASSWORD: daniel1220
+    ports:
+      - 5431:5431
+    expose:
+      - 5431
+    command: -p 5431
