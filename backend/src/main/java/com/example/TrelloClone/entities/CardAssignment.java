@@ -1,6 +1,5 @@
 package com.example.TrelloClone.entities;
 
-import com.example.TrelloClone.utils.PrimaryKeyCardAssignment;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,16 +12,13 @@ import lombok.NoArgsConstructor;
 @Builder
 @Data
 public class CardAssignment {
-    @EmbeddedId
-    private PrimaryKeyCardAssignment id;
-
+    @Id
     @ManyToOne
-    @MapsId("memberId")
     @JoinColumn(name = "memberId")
     private Member member;
 
+    @Id
     @ManyToOne
-    @MapsId("cardId")
     @JoinColumn(name = "cardId")
     private Card card;
 }
